@@ -1,0 +1,4 @@
+= diary server =
+
+Get your org-mode agenda in a browser.
+
