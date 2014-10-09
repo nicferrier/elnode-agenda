@@ -63,6 +63,11 @@ Returns a list of alists with each having the keys described in
               (with-output-to-string
                   (org-batch-agenda-csv "e")))))))))))
 
+(defun diary-server/json-list (&rest args)
+  (--map
+   (json-encode it)
+   (apply 'diary-server/date-list args)))
+
 (provide 'diary-server)
 
 ;;; server.el ends here
