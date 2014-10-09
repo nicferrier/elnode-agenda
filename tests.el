@@ -1,6 +1,7 @@
-;;; tests  -*- lexical-binding: t -*-
+;;; tests --- tests for the diary server  -*- lexical-binding: t -*-
 
 (require 'ert)
+(require 'diary-server)
 
 (defmacro diary-server/fake (&rest body)
   (declare (debug (&rest form)))
