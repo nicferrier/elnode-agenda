@@ -28,6 +28,7 @@
       ((alist "date" date "head" head) (list date head)))))))
 
 (ert-deftest diary-server/json-list ()
+  "Test the json version."
   (diary-server/fake
    (let ((val (match
                (let ((json-key-type 'string))
