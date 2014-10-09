@@ -27,6 +27,7 @@
 (require 's)
 (require 'cl)
 (require 'noflet)
+(require 'dash)
 
 (defun* diary-server/date-list (&key (daystart :today)
                                      (days 10))
@@ -35,7 +36,7 @@
 DAYSTART could be `:today' or it could be a date like
 \"2014-08-01\".
 
-Returns a vector of alists with each having the keys described in
+Returns a list of alists with each having the keys described in
 `org-batch-agenda-csv'."
   (let ((org-agenda-window-setup 'diary-server-special)) ; override so we don't open windows
     (noflet ((org-pop-to-buffer-same-window (buf)))
@@ -52,7 +53,7 @@ Returns a vector of alists with each having the keys described in
                   ;; this comes from the doc for org-batch-agenda-csv
                   "category,head,type,todo,tags,date,time,extra,priority-l,priority-n")))
           (apply
-           'vector
+           'list
            (--map
             (-zip h (s-split "," it))
             (--filter
